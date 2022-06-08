@@ -91,5 +91,6 @@ module.exports = {
       },
     ],
     'arrow-body-style': ['error', 'as-needed'],
+    'no-console': 'off',
   },
 };

@@ -5,7 +5,6 @@ import useStyles from './styles';
 
 const Movie = ({ movie, i }) => {
   const classes = useStyles();
-  console.log(movie, i);
 
   return (
     <Grid item xs={12} sm={6} md={4} lg={3} xl={2} className={classes.movie}>
@@ -17,7 +16,7 @@ const Movie = ({ movie, i }) => {
             alt={movie.title}
           />
           <Tooltip disableTouchListener title={`Rated ${movie.vote_average / 2} / 5`}>
-            <div><Rating readOnly value={movie.vote_average / 2} precision={0.2} /></div>
+            <div><Rating readOnly value={movie.vote_average / 2} precision={0.05} /></div>
           </Tooltip>
           <Typography variant="subtitle2" className={classes.title}>
             {movie.title}

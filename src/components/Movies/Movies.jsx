@@ -27,8 +27,6 @@ const Movies = () => {
 
   if (error) return 'An error has occurred.';
 
-  console.log(data);
-
   return (
     <MovieList movies={data} />
   );

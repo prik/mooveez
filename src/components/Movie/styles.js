@@ -32,10 +32,7 @@ export default makeStyles((theme) => ({
   },
   title: {
     color: theme.palette.text.primary,
-    textOverflow: 'ellipsis',
     width: 230,
-    whiteSpace: 'nowrap',
-    overflow: 'hidden',
     marginBottom: '15px !important',
     textAlign: 'center',
   },

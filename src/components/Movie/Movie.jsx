@@ -16,7 +16,7 @@ const Movie = ({ movie, i }) => {
             alt={movie.title}
           />
           <Tooltip disableTouchListener title={`Rated ${movie.vote_average / 2} / 5`}>
-            <div><Rating readOnly value={movie.vote_average / 2} precision={0.05} /></div>
+            <div><Rating readOnly value={movie.vote_average / 2} precision={0.1} /></div>
           </Tooltip>
           <Typography variant="subtitle2" className={classes.title}>
             {movie.title}

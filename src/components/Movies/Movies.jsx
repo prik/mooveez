@@ -4,7 +4,6 @@ import { MovieList } from '..';
 import { useGetPopularQuery } from '../../services/TMDB';
 
 const Movies = () => {
-  console.log('Movies');
   const { data, error, isFetching } = useGetPopularQuery();
 
   if (isFetching) {

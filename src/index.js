@@ -6,7 +6,17 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import App from './components/App';
 import store from './app/store';
 
-const theme = createTheme({});
+const theme = createTheme({
+  typography: {
+    fontFamily: [
+      'Plus Jakarta Sans',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+    ].join(','),
+  },
+});
 
 ReactDOM.createRoot(
   document.getElementById('root'),

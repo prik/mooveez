@@ -1,13 +1,22 @@
 import { makeStyles } from '@mui/styles';
 
 export default makeStyles((theme) => ({
-  image: {
-    width: '70%',
+  // image: {
+  //   width: '70%',
+  // },
+  logoLink: {
+    padding: '7.5% 0 7.5% 15px',
+    textDecoration: 'none',
   },
-  imageLink: {
-    display: 'flex',
-    justifyContent: 'center',
-    padding: '5% 0',
+  logo: {
+    fontSize: '2.3rem !important',
+    fontWeight: '800 !important',
+  },
+  light: {
+    color: '#1976d2',
+  },
+  dark: {
+    color: '#e50914',
   },
   links: {
     color: theme.palette.text.primary,

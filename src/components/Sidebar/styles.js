@@ -1,9 +1,6 @@
 import { makeStyles } from '@mui/styles';
 
 export default makeStyles((theme) => ({
-  // image: {
-  //   width: '70%',
-  // },
   logoLink: {
     padding: '7.5% 0 7.5% 15px',
     textDecoration: 'none',

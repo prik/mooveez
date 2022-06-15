@@ -16,7 +16,6 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const tmdbToken = localStorage.getItem('tmdb_token');
   const isMobile = useMediaQuery('(max-width:600px)');
-  console.log(user);
 
   const [isDarkModeEnabled, setIsDarkModeEnabled] = React.useState(theme.palette.mode === 'dark');
   const [isMobileDrawerOpen, setIsMobileDrawerOpen] = React.useState(false);
@@ -47,13 +46,14 @@ const Navbar = () => {
           {!isMobile && <Search />}
           {!isAuthenticated ? (
             <Button color="inherit" onClick={getTmdbToken}>
-              Login <AccountCircle sx={{ ml: 1 }} />
+              Login <AccountCircle sx={{ ml: 1.5 }} />
             </Button>
           ) : (
             <Button color="inherit" component={Link} to={`profile/${user.id}`} className={classes.linkButton} onClick={() => {}}>
-              {!isMobile && <span style={{ marginRight: 10 }}>My Movies</span>}
+              {!isMobile && 'My Movies'}
               <Avatar
-                style={{ width: 30, height: 30 }}
+                sx={{ ml: 1.8 }}
+                style={{ width: 35, height: 35 }}
                 alt="profile"
                 src={user.avatar.gravatar.hash
                   ? `https://www.gravatar.com/avatar/${user.avatar.gravatar.hash}`

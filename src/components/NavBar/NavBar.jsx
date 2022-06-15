@@ -3,17 +3,34 @@ import { AppBar, Toolbar, Drawer, Button, IconButton, Avatar, useMediaQuery } fr
 import { Menu, AccountCircle, DarkModeOutlined, LightModeOutlined } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
+import { useDispatch, useSelector } from 'react-redux';
 import { Sidebar, Search } from '..';
+import { movieApi, getTmdbToken, createTmdbSessionId } from '../../utils';
 import useStyles from './styles';
+import { setUser, userSelector } from '../../features/auth';
 
 const Navbar = () => {
+  const { user, isAuthenticated } = useSelector(userSelector);
   const theme = useTheme();
   const classes = useStyles();
-  const isAuthenticated = true;
+  const dispatch = useDispatch();
+  const tmdbToken = localStorage.getItem('tmdb_token');
   const isMobile = useMediaQuery('(max-width:600px)');
+  console.log(user);
 
   const [isDarkModeEnabled, setIsDarkModeEnabled] = React.useState(theme.palette.mode === 'dark');
   const [isMobileDrawerOpen, setIsMobileDrawerOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    const loginUser = async () => {
+      if (!tmdbToken) return;
+      const tmdbSessionId = localStorage.getItem('tmdb_session_id') || await createTmdbSessionId(tmdbToken);
+      const { data: userData } = await movieApi.get(`/account?session_id=${tmdbSessionId}`);
+      dispatch(setUser(userData));
+    };
+
+    loginUser();
+  }, [tmdbToken]);
 
   return (
     <>
@@ -29,13 +46,19 @@ const Navbar = () => {
           </IconButton>
           {!isMobile && <Search />}
           {!isAuthenticated ? (
-            <Button color="inherit" onClick={() => {}}>
+            <Button color="inherit" onClick={getTmdbToken}>
               Login <AccountCircle sx={{ ml: 1 }} />
             </Button>
           ) : (
-            <Button color="inherit" component={Link} to="profile/:id" className={classes.linkButton} onClick={() => {}}>
+            <Button color="inherit" component={Link} to={`profile/${user.id}`} className={classes.linkButton} onClick={() => {}}>
               {!isMobile && <span style={{ marginRight: 10 }}>My Movies</span>}
-              <Avatar style={{ width: 30, height: 30 }} alt="profile" src="https://i.pravatar.cc/30" />
+              <Avatar
+                style={{ width: 30, height: 30 }}
+                alt="profile"
+                src={user.avatar.gravatar.hash
+                  ? `https://www.gravatar.com/avatar/${user.avatar.gravatar.hash}`
+                  : 'https://i.pravatar.cc/30'}
+              />
             </Button>
           )}
           {isMobile && <Search />}

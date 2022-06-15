@@ -11,6 +11,9 @@ export default makeStyles((theme) => ({
   },
   light: {
     color: '#1976d2',
+    background: 'linear-gradient(to right, #00baff, #0059B2)',
+    '-webkitBackgroundClip': 'text',
+    textFillColor: 'transparent',
   },
   dark: {
     color: '#e50914',

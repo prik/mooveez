@@ -3,7 +3,7 @@ import { AppBar, Toolbar, Drawer, Button, IconButton, Avatar, useMediaQuery } fr
 import { Menu, AccountCircle, DarkModeOutlined, LightModeOutlined } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
-import { Sidebar } from '..';
+import { Sidebar, Search } from '..';
 import useStyles from './styles';
 
 const Navbar = () => {
@@ -27,7 +27,7 @@ const Navbar = () => {
           <IconButton color="inherit" sx={{ ml: 1 }} onClick={() => { setIsDarkModeEnabled((prevState) => !prevState); }}>
             {isDarkModeEnabled ? <DarkModeOutlined /> : <LightModeOutlined />}
           </IconButton>
-          {!isMobile && 'Search...'}
+          {!isMobile && <Search />}
           {!isAuthenticated ? (
             <Button color="inherit" onClick={() => {}}>
               Login <AccountCircle sx={{ ml: 1 }} />
@@ -38,7 +38,7 @@ const Navbar = () => {
               <Avatar style={{ width: 30, height: 30 }} alt="profile" src="https://i.pravatar.cc/30" />
             </Button>
           )}
-          {isMobile && 'Search...'}
+          {isMobile && <Search />}
         </Toolbar>
       </AppBar>
       <nav className={classes.drawer}>

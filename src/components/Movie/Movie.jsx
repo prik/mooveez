@@ -11,7 +11,7 @@ const Movie = ({ movie, i }) => {
       <Grow in key={i} timeout={(i + 1) * 250}>
         <Link to={`/movies/${movie.id}`} className={classes.link}>
           <img
-            src={movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : 'http://fillmurray.com/200/300'}
+            src={movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : 'https://www.fillmurray.com/200/300'}
             className={classes.image}
             alt={movie.title}
           />

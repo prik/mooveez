@@ -11,12 +11,9 @@ const Search = () => {
   const [query, setQuery] = React.useState('');
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down('sm'));
 
-  const handleKeypress = (event) => {
-    // if (event.key === 'Enter') {
-    setQuery(event.target.value);
-    if (query.length > 1) dispatch(searchMovie(query));
-    // }
-  };
+  React.useEffect(() => {
+    if (query.length > 2) dispatch(searchMovie(query));
+  }, [query]);
 
   return (
     <div className={classes.searchContainer}>
@@ -29,7 +26,6 @@ const Search = () => {
       <TextField
         variant={isSmallScreen ? 'standard' : 'filled'}
         value={query}
-        onKeyPress={(e) => handleKeypress(e)}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search..."
         InputProps={{

@@ -53,7 +53,7 @@ const Navbar = () => {
               {!isMobile && 'My Movies'}
               <Avatar
                 sx={{ ml: 1.8 }}
-                style={{ width: 35, height: 35 }}
+                style={isMobile ? { width: 30, height: 30 } : { width: 35, height: 35 }}
                 alt="profile"
                 src={user.avatar.gravatar.hash
                   ? `https://www.gravatar.com/avatar/${user.avatar.gravatar.hash}`

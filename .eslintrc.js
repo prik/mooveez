@@ -93,5 +93,10 @@ module.exports = {
     'arrow-body-style': ['error', 'as-needed'],
     'no-console': 'off',
     'no-param-reassign': 'off',
+    'lines-between-class-members': [
+      'error',
+      'always',
+      { exceptAfterSingleLine: true },
+    ],
   },
 };

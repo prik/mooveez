@@ -21,7 +21,7 @@ const Pagination = ({ currentPage, totalPages, setPage }) => {
   return (
     <div className={classes.container}>
       <Button disabled={!isPrevEnabled} onClick={handlePrev} className={classes.button} variant="contained" color="primary" type="button">Prev</Button>
-      <Typography variant="h4" className={classes.pageNumber}>{currentPage} / {totalPages}</Typography>
+      <Typography variant="body1" className={classes.pageNumber}>{currentPage} / {totalPages}</Typography>
       <Button disabled={!isNextEnabled} onClick={handleNext} className={classes.button} variant="contained" color="primary" type="button">Next</Button>
     </div>
   );

@@ -5,12 +5,11 @@ import useSyles from './styles';
 
 const FeaturedMovie = ({ movie }) => {
   const classes = useSyles();
-  console.log(movie);
 
   if (!movie) return null;
 
   return (
-    <Box component={Link} to={`/movie/${movie.id}`} className={classes.featuredCardContainer}>
+    <Box component={Link} to={`/movies/${movie.id}`} className={classes.featuredCardContainer}>
       <Card className={classes.card} classes={{ root: classes.cardRoot }}>
         <CardMedia
           media="picture"

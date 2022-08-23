@@ -4,7 +4,6 @@ import React from 'react';
 export const ColorModeContext = React.createContext();
 
 export const ToggleColorMode = ({ children }) => {
-  console.log('mode', localStorage.getItem('colorMode'));
   const [mode, setMode] = React.useState(localStorage.getItem('colorMode') || 'light');
 
   const toggleColorMode = () => {

@@ -5,6 +5,6 @@ export default makeStyles(() => ({
     maxWidth: '90%',
     borderRadius: 10,
     objectFit: 'cover',
-    boxShadow: '0 0 1em rgb(90 90 90)',
+    boxShadow: '0 0 2em rgb(120 120 120)',
   },
 }));

@@ -37,7 +37,6 @@ export const createTmdbSessionId = async () => {
 };
 
 export const logout = () => {
-  console.log('wut');
   localStorage.clear();
   window.location.href = '/';
 };

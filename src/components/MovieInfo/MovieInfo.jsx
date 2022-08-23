@@ -45,8 +45,6 @@ const MovieInfo = () => {
     setIsMovieFavorited((prev) => !prev);
   };
 
-  console.log({ isMovieWatchlisted });
-
   const addToWatchlist = async () => {
     await axios.post(`https://api.themoviedb.org/3/account/${user.id}/watchlist?api_key=${tmdbApiKey}&session_id=${localStorage.getItem('tmdb_session_id')}`, {
       media_type: 'movie',
@@ -66,7 +64,6 @@ const MovieInfo = () => {
   }
 
   if (error || !movie) return 'An error has occurred.';
-  console.log(movie);
 
   return (
     <Grid container className={classes.movieInfoContainer}>

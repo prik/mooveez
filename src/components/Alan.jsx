@@ -13,9 +13,8 @@ const useAlan = () => {
 
   React.useEffect(() => {
     alanBtn({
-      key: '18a2bce8acbd24b447c56a7900cfbb662e956eca572e1d8b807a3e2338fdd0dc/stage',
+      key: process.env.REACT_APP_ALAN_KEY,
       onCommand: ({ command, mode, genreOrCategory, genres, query }) => {
-        console.log(command);
         if (command === 'chooseGenre') {
           const requestedGenre = genres.find((genre) => genre.name.toLowerCase() === genreOrCategory.toLowerCase());
           if (requestedGenre) {
@@ -29,7 +28,6 @@ const useAlan = () => {
         }
 
         if (command === 'search') {
-          console.log('query', query);
           navigate('/');
           dispatch(searchMovie(query));
         }

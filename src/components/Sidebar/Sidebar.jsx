@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { List, ListItem, ListItemText, ListSubheader, ListItemIcon, Box, CircularProgress, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useTheme } from '@mui/styles';
@@ -20,6 +20,10 @@ const Sidebar = (({ setIsMobileDrawerOpen }) => {
     { label: 'Top Rated', value: 'top_rated' },
     { label: 'Upcoming', value: 'upcoming' },
   ];
+
+  React.useEffect(() => {
+    setIsMobileDrawerOpen?.(false);
+  }, [genreIdOrCategoryName]);
 
   return (
     <>

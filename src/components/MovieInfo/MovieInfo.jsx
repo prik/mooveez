@@ -20,10 +20,10 @@ const MovieInfo = () => {
   const dispatch = useDispatch();
   const { data: movie, isFetching, error } = useGetMovieQuery(id);
   const { data: recommendations, isFetching: isRecommendationsFetching } = useGetRecommendationsQuery(id);
-  const [isTrailerModalOpen, setIsTrailerModalOpen] = React.useState(false);
   const { data: favoriteMovies } = useGetListQuery({ listName: 'favorite/movies', accountId: user.id, sessionId: localStorage.getItem('tmdb_session_id'), page: 1 });
   const { data: watchlistMovies } = useGetListQuery({ listName: 'watchlist/movies', accountId: user.id, sessionId: localStorage.getItem('tmdb_session_id'), page: 1 });
 
+  const [isTrailerModalOpen, setIsTrailerModalOpen] = React.useState(false);
   const [isMovieFavorited, setIsMovieFavorited] = React.useState(false);
   const [isMovieWatchlisted, setIsMovieWatchlisted] = React.useState(false);
 

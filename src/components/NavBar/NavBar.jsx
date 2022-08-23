@@ -2,22 +2,22 @@ import React from 'react';
 import { AppBar, Toolbar, Drawer, Button, IconButton, Avatar, useMediaQuery } from '@mui/material';
 import { Menu, AccountCircle, DarkModeOutlined, LightModeOutlined } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
-import { useTheme } from '@mui/material/styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { Sidebar, Search } from '..';
 import { movieApi, getTmdbToken, createTmdbSessionId } from '../../utils';
 import useStyles from './styles';
 import { setUser, userSelector } from '../../features/auth';
+import { ColorModeContext } from '../../utils/ToggleColorMode';
 
 const Navbar = () => {
   const { user, isAuthenticated } = useSelector(userSelector);
-  const theme = useTheme();
+  const colorMode = React.useContext(ColorModeContext);
   const classes = useStyles();
   const dispatch = useDispatch();
   const tmdbToken = localStorage.getItem('tmdb_token');
   const isMobile = useMediaQuery('(max-width:600px)');
 
-  const [isDarkModeEnabled, setIsDarkModeEnabled] = React.useState(theme.palette.mode === 'dark');
+  const isDarkModeEnabled = colorMode.mode === 'dark';
   const [isMobileDrawerOpen, setIsMobileDrawerOpen] = React.useState(false);
 
   React.useEffect(() => {
@@ -40,7 +40,7 @@ const Navbar = () => {
               <Menu />
             </IconButton>
           )}
-          <IconButton color="inherit" sx={{ ml: 1 }} onClick={() => { setIsDarkModeEnabled((prevState) => !prevState); }}>
+          <IconButton color="inherit" sx={{ ml: 1 }} onClick={colorMode.toggleColorMode}>
             {isDarkModeEnabled ? <DarkModeOutlined /> : <LightModeOutlined />}
           </IconButton>
           {!isMobile && <Search />}

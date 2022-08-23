@@ -20,8 +20,8 @@ export default makeStyles((theme) => ({
   },
   poster: {
     display: 'block',
-    borderRadius: 20,
-    boxShadow: '0.5em 1em 1em rgb(64, 64, 70)',
+    borderRadius: 10,
+    boxShadow: '0 0 1em rgb(90 90 90)',
     width: '80%',
     [theme.breakpoints.down('md')]: {
       margin: '0 auto',
@@ -58,7 +58,7 @@ export default makeStyles((theme) => ({
     maxWidth: '7em',
     height: '8em',
     objectFit: 'cover',
-    borderRadius: '10px',
+    borderRadius: 10,
   },
   buttonsContainer: {
     display: 'flex',

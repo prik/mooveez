@@ -35,3 +35,10 @@ export const createTmdbSessionId = async () => {
     console.log('Sorry, your TMDB session could not be created.', error.message);
   }
 };
+
+export const logout = () => {
+  console.log('wut');
+  localStorage.clear();
+  window.location.href = '/';
+};
+

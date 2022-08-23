@@ -4,10 +4,15 @@ import React from 'react';
 export const ColorModeContext = React.createContext();
 
 export const ToggleColorMode = ({ children }) => {
-  const [mode, setMode] = React.useState('light');
+  console.log('mode', localStorage.getItem('colorMode'));
+  const [mode, setMode] = React.useState(localStorage.getItem('colorMode') || 'light');
 
   const toggleColorMode = () => {
-    setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+    setMode((prevMode) => {
+      const newMode = prevMode === 'light' ? 'dark' : 'light';
+      localStorage.setItem('colorMode', newMode);
+      return newMode;
+    });
   };
 
   const theme = React.useMemo(() => createTheme({

@@ -17,6 +17,10 @@ export default makeStyles((theme) => ({
   },
   dark: {
     color: '#e50914',
+    // background: 'linear-gradient(to right, #fb4032, #8b4aff)',
+    background: 'linear-gradient(to right, #e6a6b1, #fb4032)',
+    '-webkitBackgroundClip': 'text',
+    textFillColor: 'transparent',
   },
   links: {
     color: theme.palette.text.primary,
